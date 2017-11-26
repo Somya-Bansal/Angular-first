@@ -5,11 +5,21 @@
     this.products = gems;
   });
 
+  app.controller('TabController', function(){
+    this.tab = 1;
+    this.setTab = function(tabValue){
+      this.tab = tabValue;
+    };
+    this.isSet = function(setValue){
+      return this.tab===setValue;
+    };
+  });
+
   var gems =[
   {
     name: 'Dodecehedron',
-    price: 2.95,
-    description: '......',
+    price: 2,
+    description: 'The finest gem of them all!',
     canPurchase: false,
     soldOut: true,
   },

@@ -2,15 +2,44 @@
 <html ng-app="gemStore">
   <head>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-  </head>
-  <body ng-controller="StoreController as store">
-    <div ng-repeat="product in store.products">
-      <h1> {{store.product.name}} </h1>
-      <h2> ${{store.product.price}} </h2>
-      <p> {{store.product.description}} </p>
-      <button ng-show="store.product.canPurchase"> Add to cart </button>
-    </div>
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">-an Angular store-</h2>
+    </header>
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+      <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pill">
+          <li ng-class="{active:isSet(1)}">
+            <a href ng-click="tab.setTab(1)">Description</a>
+          </li>
+          <li ng-class="{active:isSet(2)}">
+            <a href ng-click="tab.setTab(2)">Specs</a>
+          </li ng-class="{active:isSet(3)}">
+          <li>
+            <a href ng-click="tab.setTab(3)">Reviews</a>
+          </li>
+        </ul>
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote>{{product.description}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>Shine:</blockquote>
+        </div>
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
