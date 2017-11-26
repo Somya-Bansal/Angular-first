@@ -1,7 +1,8 @@
-<!DOCTYPE html version="1.0" encoding="utf-8">
+<!DOCTYPE html encoding="UTF-8">
 <html ng-app="gemStore">
   <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <meta charset="utf-8">
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
@@ -27,13 +28,10 @@
             <a href ng-click="tab.setTab(3)">Reviews</a>
           </li>
         </ul>
-        <div ng-show="tab.isSet(1)">
-          <h4>Description</h4>
-          <blockquote>{{product.description}}</blockquote>
+        <div>
+           <product-description ng-show="tab.isSet(1)"></product-description>
         </div>
-        <div ng-show="tab.isSet(2)">
-          <h4>Specs</h4>
-          <blockquote>Shine:{{product.shine}}</blockquote>
+        <div ng-show="tab.isSet(2)" product-specs>
         </div>
         <div ng-show="tab.isSet(3)">
           <ul>
