@@ -1,2 +1,2 @@
 
-The vey first project with angular
+The very first project with angular
