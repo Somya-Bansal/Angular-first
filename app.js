@@ -1,18 +1,8 @@
 (function(){
-  var app = angular.module('gemStore', [ ]);
+  var app = angular.module('gemStore', ['store-directives']);
 
   app.controller('StoreController', function(){
     this.products = gems;
-  });
-
-  app.controller('TabController', function(){
-    this.tab = 1;
-    this.setTab = function(tabValue){
-      this.tab = tabValue;
-    };
-    this.isSet = function(setValue){
-      return this.tab===setValue;
-    };
   });
 
   app.controller('ReviewController', function(){
@@ -24,21 +14,6 @@
     };
   });
 
-  app.directive('productDescription', function(){
-    return {
-      restrict:'E',
-      templateUrl:'product-description.html',
-
-
-    };
-  });
-
-  app.directive('productSpecs', function(){
-    return {
-      restrict:'A',
-      templateUrl:'product-specs.html',
-    };
-  });
 
   var gems = [{
         name: 'Azurite',
@@ -121,20 +96,3 @@
 
 
 })();
-
-//   var gems =[
-//   {
-//     name: 'Dodecehedron',
-//     price: 2,
-//     description: 'The finest gem of them all!',
-//     canPurchase: false,
-//     soldOut: true,
-//   },
-//   {
-//     name: 'Pentagonal Gem',
-//     price: 5.45,
-//     description: '......',
-//     canPurchase: true,
-//     soldOut: false,
-//   }
-// ];
